@@ -1,0 +1,20 @@
+<hello name="CDK Drag-Drop Tabs"></hello>
+<p>
+	Start editing to see some magic happen q :)
+</p>
+
+<tabset vertical="false" #someTabs>
+	<tab *ngFor="let tab of tabsList;let index=index;">
+		<ng-template tabHeading>
+			<div [cdkDragDisabled]="index==0" class="draggable" cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event);" cdkDropList
+				cdkDrag [draggable]="true" id="tabIndex_{{index}}"
+				[cdkDropListConnectedTo]="getAllListConnections(index)">
+				<i class="fa fa-star"></i>{{tab.title}}
+			</div>
+
+       
+		</ng-template>
+		<h3> {{tab.title}}</h3>
+	</tab>
+
+</tabset>
